@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  addTwoNumbers(a: number,b: number){
+    return a+b;
+  }
+
 }
