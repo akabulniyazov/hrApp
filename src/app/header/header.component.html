@@ -1,5 +1,12 @@
-<p>
-  {{message}} Today is {{date}}
-</p>
+<h4 class="headerMessage">
+  {{message}} 
+  
+</h4>
+<p position =right>Today is {{date}}</p>
 
-{{addTwoNumbers(2,3)}}
+<button *ngIf="isCollapsed" (click)="toggleCollapse()">Expand</button>
+<button *ngIf="!isCollapsed" (click)="toggleCollapse()">Collapse</button>
+
+<div *ngIf="!isCollapsed">
+<p>Click me</p>
+</div>

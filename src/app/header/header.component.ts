@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/compiler/src/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header',
@@ -10,7 +12,16 @@ export class HeaderComponent implements OnInit {
   message: string="Welcome to HR Application";
   date: string;
 
-  constructor() {
+  isCollapsed: boolean =true;
+
+  toggleCollapse(){
+    this.isCollapsed=!this.isCollapsed;
+    this.router.navigate(['employees']);
+  }
+
+  @Input("name") userName: string;
+
+  constructor(private router: Router) {
     setInterval( () => {
       let currentDate = new Date();
       this.date=currentDate.toDateString()+' '+currentDate.toLocaleTimeString();
@@ -19,9 +30,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  addTwoNumbers(a: number,b: number){
-    return a+b;
-  }
-
 }

@@ -1,0 +1,9 @@
+.headerMessage {
+    border: 1px gray solid;
+    padding: 15px;
+    width: 100%;
+    position: center;        
+    background: #7FDBFF;
+    color: #111111;
+    
+}
