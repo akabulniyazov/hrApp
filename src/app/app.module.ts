@@ -9,13 +9,17 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, ROUTES } from '@angular/router';
+import { SearchDepartmentComponent } from './search-department/search-department.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     EmployeeDetailsComponent,
-    SearchEmployeeComponent
+    SearchEmployeeComponent,
+    SearchDepartmentComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,

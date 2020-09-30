@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Department } from '../service/data/department-data.service';
+import { Department, DepartmentDataService } from '../service/data/department-data.service';
 import { Employee, EmployeeDataService } from '../service/data/employee-data.service';
 
 
@@ -15,17 +15,23 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor(
     private router: Router, 
     private http: HttpClient, 
-    private service: EmployeeDataService) { }
+    private service: EmployeeDataService,
+    private departmentService: DepartmentDataService) { }
 
   employees: Employee[];
+  departments: Department[];
 
   ngOnInit() {
     this.service.executeEmployeesService().subscribe(
       response => {
         this.employees=response;
-        console.log('ETTOOOOOO'+this.employees[4].employeeId);
         this.router.navigate(['employees'])
       })
+
+    this.departmentService.executeDepartmentsService().subscribe(
+      response => {
+        this.departments=response;
+      })  
   }
 
 
@@ -41,5 +47,33 @@ export class EmployeeDetailsComponent implements OnInit {
     this.router.navigate(['employees',this.employeeId]);
   }
 
+  selectedDepartment: string;
+
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedDepartment = event.target.value;
+    this.router.navigate(['departments', this.selectedDepartment]);
+  }
+
+  editEmployee(employeeId: string){
+    this.router.navigate(['employee', employeeId]);
+  }
+
+  message: string;
+
+  deleteEmployee(employeeId: number){
+    this.service.deleteEmployeeService(employeeId).subscribe();
+    this.refreshTodos();
+    this.message =`Employee with employe id ${employeeId} is deleted sucessfully`;
+  }
+
+  refreshTodos(){
+    this.service.executeEmployeesService().subscribe(
+      response => {
+        this.employees=response;
+        this.router.navigate(['employees'])
+      }
+  )
+  }
 
 }

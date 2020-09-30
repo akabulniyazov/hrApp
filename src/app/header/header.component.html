@@ -4,9 +4,11 @@
 </h4>
 <p position =right>Today is {{date}}</p>
 
-<button *ngIf="isCollapsed" (click)="toggleCollapse()">Expand</button>
-<button *ngIf="!isCollapsed" (click)="toggleCollapse()">Collapse</button>
-
+<button *ngIf="isCollapsed" (click)="toggleCollapse()" class="alert alert-success" >Click to See All Employees</button>
+<button  *ngIf="!isCollapsed" (click)="toggleCollapse()" class="alert alert-success" >Collapse</button>
+<p align="right">
+<button (click)="createEmployee()" class="alert alert-success" name="wrapper">Create new Employee</button>
+</p>
 <div *ngIf="!isCollapsed">
 <p>Click me</p>
 </div>

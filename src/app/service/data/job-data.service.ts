@@ -5,7 +5,7 @@ export class Job{
   constructor(  
     public title: string,
     public jobId: string,
-    public salary:number){}
+    public salary: number){}
 }
 
 @Injectable({
@@ -16,6 +16,10 @@ export class JobDataService {
   constructor(private http: HttpClient) { }
 
   executeJobsService(){
-    return this.http.get<Job>('http://localhost:8088/api/jobs');
+    return this.http.get<Job[]>(`http://localhost:8088/api/jobs`);
+  }
+  
+  executeJobService(jobId: string){
+    return this.http.get<Job>(`http://localhost:8088/api/jobs/${jobId}`);
   }
 }

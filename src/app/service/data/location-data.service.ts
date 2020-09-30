@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class Location{
   constructor(
-    public locationCountry: String,
-    public locationState: String,
-    public locationCity: String,
+    public locationCountry: string,
+    public locationState: string,
+    public locationCity: string,
     public locationId: number
   ){}
 }

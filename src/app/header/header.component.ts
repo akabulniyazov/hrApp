@@ -30,4 +30,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  createEmployee(){
+    this.router.navigate(['employee',-1]);
+  }
 }

@@ -1,0 +1,52 @@
+<br><br><br>
+
+<div class="container">
+  <!-- <div class="alert-alert-warning" *ngIf="todoForm.invalid && todoForm.dirty">Enter valid values</div>
+  <div class="alert-alert-warning" *ngIf="targetDate.invalid && todoForm.dirty">Enter valid Target Date</div>
+  <div class="alert-alert-warning" *ngIf="description.invalid && todoForm.dirty">Enter description</div> -->
+
+  <form (ngSubmit)="!todoForm.invalid && saveEmployee()" #todoForm="ngForm">
+
+<br>
+    <fieldset class="form-group">
+      <label>First Name</label>
+    <input type ="text" #firstName="ngModel" [(ngModel)]="employee.firstName" class="form-control" name ="firstName" required="required">
+  </fieldset>
+  <br>
+  <fieldset class="form-group">
+    <label>Last Name</label>
+  <input type ="text" #lastName="ngModel" [(ngModel)]="employee.lastName" class="form-control" name ="lastName" required="required">
+</fieldset>
+
+<br>
+<fieldset class="form-group">
+  <label>department ID</label>
+<!-- <input type ="text" #departmentId="ngModel" [(ngModel)]="employee.department.departmentId" class="form-control" name ="departmentId" required="required"> -->
+<select name="department" id="department" (change)="selectChangeHandler($event)">
+  <option value="{{department.departmentId}}"  *ngFor="let department of departments">{{department.departmentName}}</option>
+</select>
+</fieldset>
+
+<br>
+<!-- <fieldset class="form-group">
+  <label>Location Coutry</label>
+<input type ="text" #locationCountry="ngModel" [(ngModel)]="employee.department.location.locationCountry" class="form-control" name ="locationCountry" required="required">
+</fieldset> -->
+<br>
+<fieldset class="form-group">
+  <label>Job Title</label>
+<!-- <input type ="text" #jobTitle="ngModel" [(ngModel)]="employee.job.title" class="form-control" name ="jobTitle" required="required"> -->
+<select name="job" id="job" (change)="selectChangeHandlerJob($event)">
+  <option value="{{job.jobId}}"  *ngFor="let job of jobs">{{job.title}}</option>
+</select>
+</fieldset>
+<br>
+<fieldset class="form-group">
+  <label>Salary</label>
+<input type ="text" #salary="ngModel" [(ngModel)]="employee.job.salary" class="form-control" name ="salary" required="required">
+</fieldset>
+<br>
+  <br><br><br>
+  <button type="submit" class="btn btn-success" (click)="saveEmployee()">Save</button>
+</form>
+

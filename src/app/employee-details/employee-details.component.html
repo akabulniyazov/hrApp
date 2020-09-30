@@ -3,22 +3,31 @@
 </p>
 
 <br>
+<label for="departments">Select Department:</label>
 
-<fieldset class="form-group">
-    <input type="text" (keyup)="onKey($event)">
-    <button (click)="getEmployee()">Search</button>
-</fieldset>
+<select name="department" id="department" (change)="selectChangeHandler($event)">
+  <option value="{{department.departmentId}}"  *ngFor="let department of departments">{{department.departmentName}}</option>
+</select>
+
+<br>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<br><br><br>
+<div class="form-group">
+    <input type="text" (keyup)="onKey($event)"  placeholder="Employee ID..">
+    <button class="btn btn-success" (click)="getEmployee()">Search</button>
+</div>
 
 
 <br>
 
-<table border="5" style="float: left" id="serched-employee">
+<table border="5" style="text-align: center" id="serched-employee">
   <tr class="header">
   <th style="width:20%;">Employee ID</th>
   <th style="width:20%;">First Name</th>
   <th style="width:20%;">Last Name </th>
   <th style="width:20%;">Department Name</th>
   <th style="width:20%;">Action</th>
+  <th style="width:20%;">Delete</th>
 
 </tr >
   <tbody *ngFor="let employee of employees" >
@@ -27,7 +36,8 @@
       <td>{{employee.firstName}}</td>
       <td>{{employee.lastName}}</td> 
       <td>{{employee.department.departmentName}}</td>
-      <td><button (click)="deleteEmployee()" class="btn btn-warning">Delete</button></td> 
+      <td><button (click)="editEmployee(employee.employeeId)" class="btn btn-success">Edit</button></td> 
+      <td><button (click)="deleteEmployee(employee.employeeId)" class="btn btn-warning">Delete</button></td> 
     </tr>
   </tbody>
 </table>

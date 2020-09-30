@@ -5,5 +5,10 @@
     position: center;        
     background: #7FDBFF;
     color: #111111;
-    
+    text-align: center;
 }
+
+/* button {
+    margin:auto;
+    display:block;
+  } */
