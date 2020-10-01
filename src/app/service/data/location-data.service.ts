@@ -18,6 +18,6 @@ export class LocationDataService {
   constructor(private http: HttpClient) { }
 
   executeLocationsService(){
-    return this.http.get<Location>('http://localhost:8088/api/locations');
+    return this.http.get<Location>('https://restapi-101.herokuapp.com/api/locations');
   }
 }

@@ -16,10 +16,10 @@ export class JobDataService {
   constructor(private http: HttpClient) { }
 
   executeJobsService(){
-    return this.http.get<Job[]>(`http://localhost:8088/api/jobs`);
+    return this.http.get<Job[]>(`https://restapi-101.herokuapp.com/api/jobs`);
   }
   
   executeJobService(jobId: string){
-    return this.http.get<Job>(`http://localhost:8088/api/jobs/${jobId}`);
+    return this.http.get<Job>(`https://restapi-101.herokuapp.com/api/jobs/${jobId}`);
   }
 }

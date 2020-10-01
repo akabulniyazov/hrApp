@@ -24,23 +24,23 @@ export class EmployeeDataService {
   constructor(private http: HttpClient) { }
 
   executeEmployeesService(){
-    return this.http.get<Employee[]>(`http://localhost:8088/api/employees`);
+    return this.http.get<Employee[]>(`https://restapi-101.herokuapp.com/api/employees`);
   }
 
   executeEmployeeService(employee_id){
-    return this.http.get<Employee>(`http://localhost:8088/api/employees/${employee_id}`);
+    return this.http.get<Employee>(`https://restapi-101.herokuapp.com/api/employees/${employee_id}`);
   }
 
   updateEmployeeService(employee_id, employee){
-    return this.http.put<Employee>(`http://localhost:8088/api/employee/${employee_id}`, employee);
+    return this.http.put<Employee>(`https://restapi-101.herokuapp.com/api/employee/${employee_id}`, employee);
   }
 
   createEmployeeService(employee: Employee){
     console.log('In service'+employee.department.departmentId);
-    return this.http.post<Employee>(`http://localhost:8088/api/employees`, employee);
+    return this.http.post<Employee>(`https://restapi-101.herokuapp.com/api/employees`, employee);
   }
 
   deleteEmployeeService(employeeId: number){
-    return this.http.delete<Employee>(`http://localhost:8088/api/employees/${employeeId}`);
+    return this.http.delete<Employee>(`https://restapi-101.herokuapp.com/api/employees/${employeeId}`);
   }
 }

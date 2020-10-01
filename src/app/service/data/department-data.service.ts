@@ -18,14 +18,14 @@ export class DepartmentDataService {
   constructor(private http: HttpClient) { }
 
   executeDepartmentsService(){
-    return this.http.get<Department[]>('http://localhost:8088/api/departments');
+    return this.http.get<Department[]>('https://restapi-101.herokuapp.com/api/departments');
   }
 
   executeDepartmentService(departmentId: number){
-    return this.http.get<Employee[]>(`http://localhost:8088/api/departments/${departmentId}/employees`);
+    return this.http.get<Employee[]>(`https://restapi-101.herokuapp.com/api/departments/${departmentId}/employees`);
   }
 
   getDepartmentService(departmentId: number){
-    return this.http.get<Department>(`http://localhost:8088/api/departments/${departmentId}`);
+    return this.http.get<Department>(`https://restapi-101.herokuapp.com/api/departments/${departmentId}`);
   }
 }
