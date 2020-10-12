@@ -1,14 +1,27 @@
-<h4 class="headerMessage">
+<!-- <h4 class="headerMessage">
   {{message}} 
   
 </h4>
 <p position =right>Today is {{date}}</p>
 
 <button *ngIf="isCollapsed" (click)="toggleCollapse()" class="alert alert-success" >Click to See All Employees</button>
-<button  *ngIf="!isCollapsed" (click)="toggleCollapse()" class="alert alert-success" >Collapse</button>
+<button  *ngIf="!isCollapsed" (click)="toggleCollapse()" class="alert alert-success" >Click to See All Employees</button>
 <p align="right">
 <button (click)="createEmployee()" class="alert alert-success" name="wrapper">Create new Employee</button>
-</p>
-<div *ngIf="!isCollapsed">
-<p>Click me</p>
-</div>
+</p> -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div><a href="https://www.techtorialacademy.com" class="navbar-brand">Human Resources</a></div>
+
+  <ul class="navbar-nav">
+    <li><a routerLink="/employees" class="nav-link">All employees</a></li>
+    <li><a routerLink="/employee/-1" class="nav-link">Create new Employee</a></li>
+  </ul>
+
+  <ul class="navbar-nav navbar-collapse justify-content-end">
+    <li><a class="nav-link">Login</a></li>
+    <li><a class="nav-link">Logout</a></li>
+  </ul>
+
+
+</nav>

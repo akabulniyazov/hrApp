@@ -8,3 +8,9 @@
 .topnav input[type=text] {
   border: 1px solid #ccc;  
 }
+
+.custom-select-wrapper {
+  position: relative;
+  user-select: none;
+  width: 100%;
+}

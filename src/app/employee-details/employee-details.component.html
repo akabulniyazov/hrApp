@@ -1,26 +1,20 @@
-<p>
-  All Employees
-</p>
-
+<div>
 <br>
-<label for="departments">Select Department:</label>
-
-<select name="department" id="department" (change)="selectChangeHandler($event)">
+<div><label for="departments">Select Department</label></div>
+<select class="custom-select-wrapper" name="department" id="department" (change)="selectChangeHandler($event)">
   <option value="{{department.departmentId}}"  *ngFor="let department of departments">{{department.departmentName}}</option>
 </select>
-
+</div>
 <br>
-<div class="alert alert-success" *ngIf='message'>{{message}}</div>
-<br><br><br>
+<div class="alert alert-warning" *ngIf='message'>{{message}}</div>
+<br><br>
 <div class="form-group">
     <input type="text" (keyup)="onKey($event)"  placeholder="Employee ID..">
     <button class="btn btn-success" (click)="getEmployee()">Search</button>
 </div>
-
-
 <br>
-
-<table border="5" style="text-align: center" id="serched-employee">
+<div>
+<table class="table">
   <tr class="header">
   <th style="width:20%;">Employee ID</th>
   <th style="width:20%;">First Name</th>
@@ -28,7 +22,6 @@
   <th style="width:20%;">Department Name</th>
   <th style="width:20%;">Action</th>
   <th style="width:20%;">Delete</th>
-
 </tr >
   <tbody *ngFor="let employee of employees" >
     <tr>
@@ -41,3 +34,4 @@
     </tr>
   </tbody>
 </table>
+</div>

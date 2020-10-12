@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { API_URL } from 'src/app/app.constants';
 
 export class Job{
   constructor(  
@@ -16,10 +17,10 @@ export class JobDataService {
   constructor(private http: HttpClient) { }
 
   executeJobsService(){
-    return this.http.get<Job[]>(`https://restapi-101.herokuapp.com/api/jobs`);
+    return this.http.get<Job[]>(`${API_URL}/jobs`);
   }
   
   executeJobService(jobId: string){
-    return this.http.get<Job>(`https://restapi-101.herokuapp.com/api/jobs/${jobId}`);
+    return this.http.get<Job>(`${API_URL}/jobs/${jobId}`);
   }
 }
