@@ -1,1 +1,1 @@
-export const API_URL="https://restapi-101.herokuapp.com/api/employee"
+export const API_URL="https://restapi-101.herokuapp.com/api"
