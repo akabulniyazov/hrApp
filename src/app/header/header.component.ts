@@ -1,6 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationServiceService } from '../service/hardcoded-authentication-service.service';
 
 @Component({
   selector: 'header',
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit {
 
   @Input("name") userName: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private hardcodedAuthenticationService : HardcodedAuthenticationServiceService) {
     setInterval( () => {
       let currentDate = new Date();
       this.date=currentDate.toDateString()+' '+currentDate.toLocaleTimeString();

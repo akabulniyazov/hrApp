@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Department, DepartmentDataService } from '../service/data/department-data.service';
 import { Employee, EmployeeDataService } from '../service/data/employee-data.service';
 
@@ -13,6 +13,7 @@ import { Employee, EmployeeDataService } from '../service/data/employee-data.ser
 export class EmployeeDetailsComponent implements OnInit {
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router, 
     private http: HttpClient, 
     private service: EmployeeDataService,

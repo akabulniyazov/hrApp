@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule, ROUTES } from '@angular/router';
 import { SearchDepartmentComponent } from './search-department/search-department.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
     EmployeeDetailsComponent,
     SearchEmployeeComponent,
     SearchDepartmentComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    LogInComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,

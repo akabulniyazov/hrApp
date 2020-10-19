@@ -1,5 +1,5 @@
 <br><br><br>
-<div>
+<div  *ngIf="employeeExist" >
 <table class="table">
   <tr class="header">
   <th style="width:20%;">Employee ID</th>
@@ -18,4 +18,7 @@
     </tr>
   </tbody>
 </table>
+</div>
+<div *ngIf="!employeeExist" class="alert alert-warning" >
+  {{errorMessage}}
 </div>

@@ -19,6 +19,8 @@ export class SearchEmployeeComponent implements OnInit {
 
   employeeId: string;
   employee: Employee;
+  employeeExist: boolean;
+  errorMessage: string;
 
   ngOnInit() {
     this.employeeId=this.route.snapshot.params['employeeId'];
@@ -26,9 +28,16 @@ export class SearchEmployeeComponent implements OnInit {
     // employee = new Employee('', '', this.employeeId, new Department(), new Job());
     this.service.executeEmployeeService(this.employeeId).subscribe(
       response => {
-        this.employee=response;
-        console.log('ETTOOOOOO'+this.employee.employeeId);
-        // this.router.navigate(['employee',this.employeeId])
+        if(response==null){
+          this.errorMessage='No such employee';
+          this.employeeExist=false;
+        }else{
+          this.employee=response;
+          this.employeeExist=true;
+          console.log('ETTOOOOOO'+this.employee.employeeId);
+          // this.router.navigate(['employee',this.employeeId])
+        }
+
       });
   }
 
