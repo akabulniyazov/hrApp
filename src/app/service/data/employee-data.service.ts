@@ -33,7 +33,7 @@ export class EmployeeDataService {
   }
 
   updateEmployeeService(employee_id, employee){
-    return this.http.put<Employee>(`${API_URL}/employee/${employee_id}`, employee);
+    return this.http.put<Employee>(`${API_URL}/employees/${employee_id}`, employee);
   }
 
   createEmployeeService(employee: Employee){
