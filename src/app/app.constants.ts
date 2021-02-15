@@ -1,1 +1,1 @@
-export const API_URL="https://qeenv-apihr-arslan.herokuapp.com/api"
+export const API_URL="https://devenv-apihr-arslan.herokuapp.com/api"
