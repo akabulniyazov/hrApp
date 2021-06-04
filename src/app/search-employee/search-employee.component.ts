@@ -28,7 +28,7 @@ export class SearchEmployeeComponent implements OnInit {
     // employee = new Employee('', '', this.employeeId, new Department(), new Job());
     this.service.executeEmployeeService(this.employeeId).subscribe(
       response => {
-        if(response==null){
+        if(response.employeeId==null){
           this.errorMessage='No such employee';
           this.employeeExist=false;
         }else{
@@ -36,10 +36,8 @@ export class SearchEmployeeComponent implements OnInit {
           this.employeeExist=true;
           console.log('ETTOOOOOO'+this.employee.employeeId);
           // this.router.navigate(['employee',this.employeeId])
-          return;
         }
-        this.errorMessage='No such employee';
-        this.employeeExist=false;
+
       });
   }
 
