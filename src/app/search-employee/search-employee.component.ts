@@ -28,7 +28,7 @@ export class SearchEmployeeComponent implements OnInit {
     // employee = new Employee('', '', this.employeeId, new Department(), new Job());
     this.service.executeEmployeeService(this.employeeId).subscribe(
       response => {
-        if(response.employeeId==null){
+        if(response==null){
           this.errorMessage='No such employee';
           this.employeeExist=false;
         }else{
