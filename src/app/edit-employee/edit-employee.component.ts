@@ -83,12 +83,12 @@ export class EditEmployeeComponent implements OnInit {
         console.log('DDDDD'+this.employee.department.departmentName);
       }
     )
-    this.jobService.executeJobService(this.jobId).subscribe(
-        response => {
-          this.employee.job.title=response.title;
-          console.log('JJJJ'+response.title);
-        }
-      )
+    // this.jobService.executeJobService(this.jobId).subscribe(
+    //     response => {
+    //       this.employee.job.title=response.title;
+    //       console.log('JJJJ'+response.title);
+    //     }
+    //   )
   }
 
   jobId: string;
