@@ -59,8 +59,8 @@ export class EditEmployeeComponent implements OnInit {
       this.employee.job.jobId=this.jobId;
       this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
         response => {
-          this.departmentName=response.departmentName;
-          console.log('DDDDD'+this.departmentName);
+          this.employee.department.departmentName= response.departmentName;
+          console.log('DDDDD'+this.employee.department.departmentName);
         }
       )
       // this.jobService.executeJobService(this.jobId).subscribe(
@@ -71,7 +71,7 @@ export class EditEmployeeComponent implements OnInit {
       // )
       // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
       // this.employee.department=this.department;
-      this.employee.department.departmentName==this.departmentName;
+      // this.employee.department.departmentName==this.departmentName;
       console.log('DDDDD'+this.employee.department.departmentName);
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
