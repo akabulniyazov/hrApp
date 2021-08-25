@@ -59,7 +59,7 @@ export class EditEmployeeComponent implements OnInit {
       this.employee.job.jobId=this.jobId;
       this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
         response => {
-          this.department=response;
+          this.departmentName=response.departmentName;
           console.log('DDDDD'+this.department);
         }
       )
@@ -70,8 +70,8 @@ export class EditEmployeeComponent implements OnInit {
       //   }
       // )
       // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
-      this.employee.department=this.department;
-      // this.employee.department.departmentName=this.departmentName;
+      // this.employee.department=this.department;
+      this.employee.department.departmentName=this.departmentName;
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
       this.router.navigate(['employees']);
