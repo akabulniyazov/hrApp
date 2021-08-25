@@ -57,12 +57,7 @@ export class EditEmployeeComponent implements OnInit {
     if(this.employeeId=='-1'){
       this.employee.department.departmentId=this.selectedDepartment;
       this.employee.job.jobId=this.jobId;
-      this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
-        response => {
-          this.employee.department.departmentName= response.departmentName;
-          console.log('DDDDD'+this.employee.department.departmentName);
-        }
-      )
+
       // this.jobService.executeJobService(this.jobId).subscribe(
       //   response => {
       //     this.employee.job.title=response.title;
@@ -92,6 +87,12 @@ export class EditEmployeeComponent implements OnInit {
   selectChangeHandler (event: any) {
     this.selectedDepartment = event.target.value;
     console.log('Department '+this.selectedDepartment);
+    this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
+      response => {
+        this.employee.department.departmentName= response.departmentName;
+        console.log('DDDDD'+this.employee.department.departmentName);
+      }
+    )
   }
 
   jobId: string;
