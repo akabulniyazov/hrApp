@@ -17,7 +17,6 @@ export class EditEmployeeComponent implements OnInit {
   employee: Employee;
   departments: Department[];
   jobs: Job[];
-  department: Department;
 
   constructor(
     private router: Router, 
