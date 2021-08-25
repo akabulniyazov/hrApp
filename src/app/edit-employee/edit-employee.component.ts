@@ -57,16 +57,6 @@ export class EditEmployeeComponent implements OnInit {
     if(this.employeeId=='-1'){
       this.employee.department.departmentId=this.selectedDepartment;
       this.employee.job.jobId=this.jobId;
-
-      // this.jobService.executeJobService(this.jobId).subscribe(
-      //   response => {
-      //     this.employee.job.title=response.title;
-      //     console.log('JJJJ'+response.title);
-      //   }
-      // )
-      // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
-      // this.employee.department=this.department;
-      // this.employee.department.departmentName==this.departmentName;
       console.log('DDDDD'+this.employee.department.departmentName);
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
@@ -93,6 +83,12 @@ export class EditEmployeeComponent implements OnInit {
         console.log('DDDDD'+this.employee.department.departmentName);
       }
     )
+    this.jobService.executeJobService(this.jobId).subscribe(
+        response => {
+          this.employee.job.title=response.title;
+          console.log('JJJJ'+response.title);
+        }
+      )
   }
 
   jobId: string;
