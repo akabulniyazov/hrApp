@@ -1,1 +1,1 @@
-export const API_URL="http://localhost:8088/api"
+export const API_URL="https://devenv-apihr-arslan.herokuapp.com/api"
