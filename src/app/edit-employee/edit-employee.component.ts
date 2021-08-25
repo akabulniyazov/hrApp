@@ -60,7 +60,7 @@ export class EditEmployeeComponent implements OnInit {
       this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
         response => {
           this.departmentName=response.departmentName;
-          console.log('DDDDD'+this.department);
+          console.log('DDDDD'+this.departmentName);
         }
       )
       // this.jobService.executeJobService(this.jobId).subscribe(
