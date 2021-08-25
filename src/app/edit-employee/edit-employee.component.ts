@@ -32,6 +32,7 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeId=this.route.snapshot.params['employeeId'];
  
     this.employee = new Employee('','',-1, new Department(-1, null, location), new Job('','',-1));
+    
     if(this.employeeId!='-1'){
     this.service.executeEmployeeService(this.employeeId).subscribe(
       response => {
@@ -54,23 +55,9 @@ export class EditEmployeeComponent implements OnInit {
 
   saveEmployee(){
     if(this.employeeId=='-1'){
-      
       this.employee.department.departmentId=this.selectedDepartment;
       this.employee.job.jobId=this.jobId;
-      this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
-        response => {
-          this.departmentName=response.departmentName;
-          console.log('DDDDD'+this.departmentName);
-        }
-      )
-      this.jobService.executeJobService(this.jobId).subscribe(
-        response => {
-          this.employee.job.title=response.title;
-          console.log('JJJJ'+response.title);
-        }
-      )
-      // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
-      this.employee.department.departmentName=this.departmentName;
+      console.log('DDDDD'+this.employee.department.departmentName);
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
       this.router.navigate(['employees']);
@@ -89,6 +76,19 @@ export class EditEmployeeComponent implements OnInit {
 
   selectChangeHandler (event: any) {
     this.selectedDepartment = event.target.value;
+    console.log('Department '+this.selectedDepartment);
+    this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
+      response => {
+        this.employee.department.departmentName= response.departmentName;
+        console.log('DDDDD'+this.employee.department.departmentName);
+      }
+    )
+    // this.jobService.executeJobService(this.jobId).subscribe(
+    //     response => {
+    //       this.employee.job.title=response.title;
+    //       console.log('JJJJ'+response.title);
+    //     }
+    //   )
   }
 
   jobId: string;
