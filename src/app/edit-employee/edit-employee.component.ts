@@ -17,6 +17,7 @@ export class EditEmployeeComponent implements OnInit {
   employee: Employee;
   departments: Department[];
   jobs: Job[];
+  department: Department;
 
   constructor(
     private router: Router, 
@@ -54,23 +55,23 @@ export class EditEmployeeComponent implements OnInit {
 
   saveEmployee(){
     if(this.employeeId=='-1'){
-      
       this.employee.department.departmentId=this.selectedDepartment;
       this.employee.job.jobId=this.jobId;
       this.departmentService.getDepartmentService(this.selectedDepartment).subscribe(
         response => {
-          this.departmentName=response.departmentName;
-          console.log('DDDDD'+this.departmentName);
+          this.department=response;
+          console.log('DDDDD'+this.department);
         }
       )
-      this.jobService.executeJobService(this.jobId).subscribe(
-        response => {
-          this.employee.job.title=response.title;
-          console.log('JJJJ'+response.title);
-        }
-      )
+      // this.jobService.executeJobService(this.jobId).subscribe(
+      //   response => {
+      //     this.employee.job.title=response.title;
+      //     console.log('JJJJ'+response.title);
+      //   }
+      // )
       // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
-      this.employee.department.departmentName=this.departmentName;
+      this.employee.department=this.department;
+      // this.employee.department.departmentName=this.departmentName;
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
       this.router.navigate(['employees']);
@@ -89,6 +90,7 @@ export class EditEmployeeComponent implements OnInit {
 
   selectChangeHandler (event: any) {
     this.selectedDepartment = event.target.value;
+    console.log('Department '+this.selectedDepartment);
   }
 
   jobId: string;
