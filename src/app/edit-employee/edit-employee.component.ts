@@ -71,6 +71,7 @@ export class EditEmployeeComponent implements OnInit {
       // this.employee.department=new Department(this.employee.department.departmentId, this.employee.department.departmentName, location);
       // this.employee.department=this.department;
       this.employee.department.departmentName=this.departmentName;
+      console.log('DDDDD'+this.employee.department.departmentName);
       console.log(this.employee);
       this.service.createEmployeeService(this.employee).subscribe();
       this.router.navigate(['employees']);
